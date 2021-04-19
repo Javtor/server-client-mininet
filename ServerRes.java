@@ -13,6 +13,8 @@ public class ServerRes {
             return;
         }
         int size = Integer.parseInt(args[0]);
+//        size = 256;
+
         HashSet<Integer> set = new HashSet<>();
         while(true){
             byte[] buf = new byte[size];

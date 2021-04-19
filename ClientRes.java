@@ -15,6 +15,10 @@ public class ClientRes {
         int size = Integer.parseInt(args[1]);
         long rate = Long.parseLong(args[2]);
 
+//        String hostname = "localhost";
+//        int size = 256;
+//        long rate = 1000;
+
         DatagramSocket socket = new DatagramSocket();
         InetAddress address = InetAddress.getByName(hostname);
 
@@ -33,7 +37,7 @@ public class ClientRes {
             packet = new DatagramPacket(buf, buf.length);
 
             long t2 = System.currentTimeMillis();
-            socket.setSoTimeout(t2-t1<rate ? (int)(t2-t1) : 1);
+            socket.setSoTimeout(1000);
             try {
                 socket.receive(packet);
                 int val = Integer.parseInt(new String(packet.getData()).trim());
@@ -47,10 +51,5 @@ public class ClientRes {
         }
 
 
-
-        // get response
-//        packet = new DatagramPacket(buf,buf.length);
-//        socket.receive(packet);
-//        System.out.println(new String(packet.getData()).trim());
     }
 }
